@@ -1,0 +1,36 @@
+<h5 class="my-5 py-3 font-weight-bold text-center mb-2">All characters</h5>
+<nav>
+    <ul class="pagination justify-content-center">
+        <pagination-controls id="listing_pagination"
+                             (pageChange)="currentPage = $event"
+                             maxSize="9"
+                             directionLinks="true"
+                             autoHide="true"
+                             responsive="true"
+                             previousLabel="Previous"
+                             nextLabel="Next"
+                             screenReaderPaginationLabel="Pagination"
+                             screenReaderPageLabel="page"
+                             screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
+    </ul>
+</nav>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4"
+         *ngFor="let character of arrCharacters | paginate: { id: 'listing_pagination',
+         itemsPerPage: 6,
+         currentPage: currentPage,
+         totalItems: arrCharactersLength} ">
+        <div class="card mb-3 border">
+            <img [src]="character.image"
+                 [alt]="character.name"
+                 class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title pl-3">{{character.name | slice: 0:15}}</h5>
+                <p class="card-text text-muted pl-3">{{character.species}}</p>
+                <a class="btn btn-secondary btn-block mt-5"
+                   [routerLink]="['/list/character/',character.id]">See more</a>
+            </div>
+        </div>
+    </div>
+</div>

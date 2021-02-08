@@ -1,0 +1,19 @@
+<div class="text-center w-50 mx-auto mt-5">
+    <h4 class="card-title">Press Fire! to start guessing the character's name</h4>
+    <button (click)="nextGuess()"
+            class="btn btn-warning mt-3">Fire!</button>
+</div>
+<div class="card w-50 mx-auto mt-5"
+     [ngClass]="visibility">
+    <img class="card-img-top"
+         [src]="randomCharacterImg"
+         [alt]="randomCharacterName">
+    <div class="card-body">
+        <p class="card-text">What's <span>{{randomCharacterGender}}</span> name?</p>
+        <input type="text"
+               [(ngModel)]="myGuess"
+               placeholder="Enter the name">
+    </div>
+</div>
+<h3 *ngIf="myGuess && myGuess == randomCharacterName"
+    class="display-4 text-center text-success mt-3">Correct!!</h3>
