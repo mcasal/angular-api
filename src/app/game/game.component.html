@@ -10,10 +10,18 @@
          [alt]="randomCharacterName">
     <div class="card-body">
         <p class="card-text">What's <span>{{randomCharacterGender}}</span> name?</p>
-        <input type="text"
-               [(ngModel)]="myGuess"
-               placeholder="Enter the name">
+        <div class="row pl-3">
+            <input type="text"
+                   id="name_character"
+                   placeholder="Enter the name">
+            <button type="button"
+                    class="btn btn-dark ml-3"
+                    (click)="onGuess()">Check!</button>
+        </div>
     </div>
+    <h3 class="display-4 text-center my-3"
+        id="guessing"
+        [ngClass]="{'text-success': (guess), 'text-danger': (!guess)}"></h3>
+    <p *ngIf="!guess"
+       class="text-center">The correct answer is {{randomCharacterName}}</p>
 </div>
-<h3 *ngIf="myGuess && myGuess == randomCharacterName"
-    class="display-4 text-center text-success mt-3">Correct!!</h3>

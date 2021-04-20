@@ -14,7 +14,7 @@ export class GameComponent implements OnInit {
   randomCharacterGender: string;
   randomCharacterName: string;
   randomCharacterImg: string;
-  myGuess: string;
+  guess: boolean;
 
   constructor(private characterService: CharacterService) {
     this.visibility = 'invisible';
@@ -24,7 +24,8 @@ export class GameComponent implements OnInit {
     this.characterService.getAllCharacters()
       .then(response => {
         this.arrCharacters = response['results'];
-      })
+      });
+    this.guess = true;
   }
 
   nextGuess() {
@@ -41,7 +42,18 @@ export class GameComponent implements OnInit {
     this.randomCharacterName = this.arrCharacters[random].name;
     this.randomCharacterImg = this.arrCharacters[random].image;
     this.visibility = 'visible';
-    this.myGuess = "";
   }
 
+  onGuess() {
+    let name: string = (<HTMLInputElement>document.getElementById('name_character')).value;
+    let guessing = document.getElementById('guessing') as HTMLElement;
+
+    if (name === this.randomCharacterName) {
+      this.guess = true;
+      guessing.textContent = 'Correct!';
+    } else {
+      this.guess = false;
+      guessing.textContent = 'Wrong!';
+    }
+  }
 }

@@ -11,7 +11,6 @@ import { Character } from "../character";
 export class CharacterListComponent implements OnInit {
 
   arrCharacters: Character[];
-  arrCharactersLength: number;
   currentPage: number;
   numPages: number;
 
@@ -24,8 +23,17 @@ export class CharacterListComponent implements OnInit {
     this.characterService.getAllCharacters()
       .then(response => {
         this.arrCharacters = response['results'];
-        this.arrCharactersLength = this.arrCharacters.length;
         this.numPages = response['info']['pages'];
       })
+  }
+
+  async onChangePage(next) {
+    if (next) {
+      this.currentPage++;
+    } else {
+      this.currentPage--;
+    }
+    const response = await this.characterService.getAllCharacters(this.currentPage);
+    this.arrCharacters = response['results'];
   }
 }
