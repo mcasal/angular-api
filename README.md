@@ -1,27 +1,18 @@
-# AngularApiRickmorty
+# Rick y Morty APP con Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+Esta app ha sido generada con [Angular CLI](https://github.com/angular/angular-cli) versión 11.0.4 y consume la API [The Rick and Morty API](https://rickandmortyapi.com/) para mostrar información sobre los personajes de la serie.
 
-## Development server
+## Descripción
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Esta app se divide en tres componentes principales: 
+* 🎮 Juego para adivinar el nombre del personaje 
+* 👽 La lista de todos los personajes 
+* 🕵️ Información detallada de cada personaje
 
-## Code scaffolding
+## Screenshots de la app
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<a href="https://github.com/mcasal">
+  <img height="270em" src="https://user-images.githubusercontent.com/60666104/115677985-52194b80-a351-11eb-8eb2-055656bb2ebb.png"/>
+  <img height="270em" src="https://user-images.githubusercontent.com/60666104/115677966-4d549780-a351-11eb-9f4c-d73f8127e9a8.png"/>
+  <img height="270em" src="https://user-images.githubusercontent.com/60666104/115677990-52b1e200-a351-11eb-98fd-c7476ef293b5.png"/>
+</a>
